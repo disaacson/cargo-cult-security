@@ -4,6 +4,7 @@
 	<h2>Anti-pattern: </h2><h3>Using encryption for integrity</h3>
 </div>
 
+<h4>Decrypted message</h4>
 <pre class="prettyprint" id="decodedMessage">
 </pre>
 
