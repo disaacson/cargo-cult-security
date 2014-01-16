@@ -9,7 +9,7 @@
 require_once('encryption_helper.php');
 
 $plainTextId = '100000';
-echo '<h4>"Secure" URL for image ' . $plainTextId . '.</h4>';
+echo '<h4>"Secure" URL for image ' . $plainTextId . ':</h4>';
 
 $cryptTextId = bin2hex(mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $plainTextId,
     MCRYPT_MODE_OFB, $initializationVector));

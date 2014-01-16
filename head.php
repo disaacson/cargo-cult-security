@@ -15,18 +15,18 @@
 		}
 		h1 {
 			color: #29aae1;
-            margin: 13px 0px;
+            margin: 10px 0px;
 		}
 		h2 {
 			color: #29aae1;
-            margin: 10px 0px;
+            margin: 7px 0px;
 		}
 		h3 {
 			color: #29aae1;
-            margin: 7px 0px;
+            margin: 5px 0px;
 		}
 		h4 {
-            margin: 5px 0px;
+            margin: 3px 0px;
 		}
 		.center
 		{
@@ -51,19 +51,20 @@
 		}
 		.title h2 {
 			display: inline-block;
-			margin: 10px 10px 10px 0px;
+			margin: 7px 7px 7px 0px;
 		}
 		.title h3 {
 			display: inline-block;
-            margin: 7px 7px 7px 0px;
+            margin: 5px 5px 5px 0px;
 		}
 		.title h4 {
 			display: inline-block;
-            margin: 5px 5px 5px 0px;
+            margin: 3px 3px 3px 0px;
 		}
 		.title h5 {
 			display: inline-block;
-            margin: 3px 3px 3px 0px;
+            margin: 2px 2px
+            px 0px;
 		}
 	</style>
 
