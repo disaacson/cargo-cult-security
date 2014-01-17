@@ -9,9 +9,10 @@
     <label>Donation amount</label>
     <input type="text" value="10.00">
     <?php
-    $csrfToken = rand();
+    $uid = "12345678";
+    $csrfToken = md5($uid . rand() . microtime());
     setCookie("csrfToken", $csrfToken);
-    echo "<input type=\"hidden\" value=\"$csrfToken\">"
+    echo "<input type=\"hidden\" value=\"$csrfToken\">";
     ?>
     <input type="submit" value="Submit">
 </form>
