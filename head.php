@@ -66,6 +66,9 @@
             margin: 2px 2px
             px 0px;
 		}
+        .error {
+            color: red;
+        }
 	</style>
 
 	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

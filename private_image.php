@@ -11,7 +11,7 @@ $plainTextId = rtrim(mcrypt_decrypt(MCRYPT_BLOWFISH, $key, hex2bin($cryptTextId)
     MCRYPT_MODE_OFB, $initializationVector));
 $imageData = file_get_contents("img/" . $plainTextId . ".jpg");
 echo '<img src="data:image/png;base64,'. base64_encode($imageData)
-    .'" height="460" width="613">'
+    .'" height="460" width="613">';
 ?>
 
 <?php include("foot.php"); ?>
