@@ -17,7 +17,7 @@ if ($hmac == $signature)
 }
 else
 {
-    echo '<h4 class="error">Invalid URL</h4>';
+    echo '<h4 class="error">Permission Denied!</h4>';
 }
 ?>
 

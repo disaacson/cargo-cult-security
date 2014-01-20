@@ -14,9 +14,10 @@ require_once('lib/cli/cli.php');
 function test_bad_encryption($id) {
 	\cli\line("\nmessage: ".$id);
 
-	$key = '0123456789abcdefghij<>?:"{}|_+,./;"[]\-=';
+	$key = md5('0123456789abcdefghij<>?:"{}|_+,./;"[]\-=');
 
-	$cryptText = mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $id, MCRYPT_MODE_OFB, $key);
+    $iv = rand();
+	$cryptText = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $id, MCRYPT_MODE_OFB, $iv);
 	$hexCryptText = bin2hex($cryptText);
 	$base64CryptText = base64_encode($cryptText);
 	\cli\line(sprintf("cryptText binary: %s", $cryptText));
