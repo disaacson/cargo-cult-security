@@ -33,8 +33,9 @@ public class Main {
 
     String foo = "foo";
     byte[] fooBytes = foo.getBytes();
-    byte intermediateByte = (byte)(fooBytes[1] ^ "o".getBytes()[0]);
-    fooBytes[1] = (byte)(intermediateByte ^ "t".getBytes()[0]);
+    byte intermediateByte = (byte)(fooBytes[1] ^ "o".getBytes()[0] ^ "t".getBytes()[0]);
+//    fooBytes[1] = (byte)(intermediateByte ^ "t".getBytes()[0]);
+    fooBytes[1] = intermediateByte;
     String fooReconstituted = new String(fooBytes);
     System.out.println("Foo: " + fooReconstituted + "\n");
   }
