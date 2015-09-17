@@ -30,5 +30,12 @@ public class Main {
     String userID = "834";
     cipherTextId = Authentication.getPrivateURL(userID);
     System.out.println("Private URL param for user ID " + userID + " : " + cipherTextId + "\n");
+
+    String foo = "foo";
+    byte[] fooBytes = foo.getBytes();
+    byte intermediateByte = (byte)(fooBytes[1] ^ "o".getBytes()[0]);
+    fooBytes[1] = (byte)(intermediateByte ^ "t".getBytes()[0]);
+    String fooReconstituted = new String(fooBytes);
+    System.out.println("Foo: " + fooReconstituted + "\n");
   }
 }
