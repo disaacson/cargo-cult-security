@@ -1,12 +1,12 @@
 import cargocult.Authentication;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 public class Main {
   public static void main(String[] args) throws BadPaddingException, InvalidKeyException, IllegalBlockSizeException, InvalidAlgorithmParameterException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException {
@@ -38,5 +38,12 @@ public class Main {
     fooBytes[1] = intermediateByte;
     String fooReconstituted = new String(fooBytes);
     System.out.println("Foo: " + fooReconstituted + "\n");
+
+    new java.util.Random().nextLong();
+
+    IvParameterSpec iv = new javax.crypto.spec.IvParameterSpec(fooBytes);
+    SecretKey key = KeyGenerator.getInstance("DES").generateKey();
+
+    Random secureRandom = new java.security.SecureRandom();
   }
 }
