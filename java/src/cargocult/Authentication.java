@@ -24,13 +24,11 @@ public class Authentication {
     }
   }
 
-  public static String getPrivateURL() throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException {
-    String plainTextId = "100000";
+  public static String getPrivateURL(String plainTextId) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException {
     cipher = Cipher.getInstance("Blowfish/OFB/NoPadding");
     cipher.init(Cipher.ENCRYPT_MODE, keySpec, initVector);
     byte[] cipherBytes = cipher.doFinal(plainTextId.getBytes("UTF-8"));
-    String cipherTextId = bytesToHex(cipherBytes);
-    return cipherTextId;
+    return bytesToHex(cipherBytes);
   }
 
   public static String decryptPrivateURL(String cipherTextId) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException {
@@ -43,8 +41,7 @@ public class Authentication {
 //    copy[copy.length - 1]++;
 //    System.out.println("mal hex " + bytesToHex(copy));
 
-    String plainTextId = new String(plainBytes, "UTF-8");
-    return plainTextId;
+    return new String(plainBytes, "UTF-8");
   }
 
   public static String getHmac(String message) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
