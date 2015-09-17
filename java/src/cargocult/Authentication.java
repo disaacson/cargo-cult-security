@@ -1,9 +1,6 @@
 package cargocult;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -48,5 +45,13 @@ public class Authentication {
 
     String plainTextId = new String(plainBytes, "UTF-8");
     return plainTextId;
+  }
+
+  public static String getHmac(String message) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+    SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(), "HmacSHA1");
+    Mac mac = Mac.getInstance("HmacSHA1");
+    mac.init(signingKey);
+    byte[] hmacBytes = mac.doFinal(message.getBytes());
+    return bytesToHex(hmacBytes);
   }
 }

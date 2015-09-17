@@ -22,5 +22,8 @@ public class Main {
     System.out.println("Malicious cipher text ID: " + maliciousCipherTextId);
     String maliciousPlainTextId = Authentication.decryptPrivateURL(maliciousCipherTextId);
     System.out.println("Decrypted malicious ID: " + maliciousPlainTextId + "\n");
+
+    String hmac = Authentication.getHmac("important message");
+    System.out.println("HMAC: " + hmac + "\n");
   }
 }
